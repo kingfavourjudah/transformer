@@ -11,13 +11,15 @@ pub fn generate_synthetic_data(
     let mut targets = Vec::new();
 
     for _ in 0..num_samples {
-        let seq: Vec<i64> = vocab
-            .choose_multiple(&mut rng, seq_len)
-            .map(|&c| vocab.iter().position(|&v| v == c).unwrap() as i64)
+        let seq: Vec<i64> = (0..seq_len)
+            .map(|_| {
+                let c = vocab.choose(&mut rng).unwrap();
+                vocab.iter().position(|&v| v == *c).unwrap() as i64
+            })
             .collect();
 
-        inputs.push(Tensor::of_slice(&seq[..seq_len - 1]).to_kind(Kind::Int64));
-        targets.push(Tensor::of_slice(&seq[1..]).to_kind(Kind::Int64));
+        inputs.push(Tensor::from_slice(&seq[..seq_len - 1]).to_kind(Kind::Int64));
+        targets.push(Tensor::from_slice(&seq[1..]).to_kind(Kind::Int64));
     }
 
     (inputs, targets)

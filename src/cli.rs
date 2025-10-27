@@ -9,7 +9,7 @@ pub struct CliArgs {
     pub samples: usize,
 
     /// Sequence length of the training data
-    #[arg(short = 'l', long, default_value_t = 5)]
+    #[arg(short = 'n', long, default_value_t = 5)]
     pub seq_len: usize,
 
     /// Number of training epochs

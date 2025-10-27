@@ -37,7 +37,7 @@ fn main() {
             let logits = model.forward(input);
             let loss = logits.cross_entropy_for_logits(target);
             opt.backward_step(&loss);
-            total_loss += f64::from(loss);
+            total_loss += loss.double_value(&[]);
         }
 
         let avg_loss = total_loss / args.samples as f64;

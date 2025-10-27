@@ -13,7 +13,7 @@ pub fn evaluate(model: &AdvancedGPT, inputs: &[Tensor], targets: &[Tensor]) -> f
             .to_kind(Kind::Int64)
             .sum(Kind::Int64);
 
-        correct_predictions += i64::from(correct);
+        correct_predictions += correct.int64_value(&[]);
         total_predictions += target.size()[0];
     }
 

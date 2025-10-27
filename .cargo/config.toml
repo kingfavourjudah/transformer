@@ -1,0 +1,4 @@
+[env]
+CXXFLAGS = "-std=c++17"
+LIBTORCH_BYPASS_VERSION_CHECK = "1"
+DYLD_LIBRARY_PATH = "/Users/favourjudah/Programs/libtorch/lib"
