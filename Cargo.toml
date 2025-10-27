@@ -2,6 +2,12 @@
 name = "transformer"
 version = "0.1.0"
 edition = "2024"
+authors = ["Lucky Nweke <kingfavourjudah@gmail.com>"]
+license = "MIT"
+description = "A Rust implementation of a character-level GPT transformer model using PyTorch bindings"
+repository = "https://github.com/kingfavourjudah/transformer"
+keywords = ["transformer", "gpt", "machine-learning", "nlp", "pytorch"]
+categories = ["science"]
 
 [dependencies]
 rand = "0.8.5"
